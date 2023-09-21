@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<script src="wasm_exec.js"></script>
-<script>
-    // Polyfill
-    if (!WebAssembly.instantiateStreaming) {
-        WebAssembly.instantiateStreaming = async (resp, importObject) => {
-            const source = await (await resp).arrayBuffer();
-            return await WebAssembly.instantiate(source, importObject);
-        };
-    }
+<html>
 
-    const go = new Go();
-    WebAssembly.instantiateStreaming(fetch("ebiten.wasm"), go.importObject).then(result => {
-        go.run(result.instance);
-    });
-</script>
+<head>
+    <meta charset="utf-8">
+    <title>Games</title>
+
+    <link href="style/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="http://gabrielecirulli.github.io/2048/">2048</a></li>
+    </ul>
+</body>
+
+</html>
